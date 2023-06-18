@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit"
 import axios from "axios"
 import { store } from "components/redux/store"
+import { getContacts } from "services/fetchContacts"
 
 export const getContactsThunk = () => {
     return async (dispatch) => {
@@ -10,10 +11,8 @@ export const getContactsThunk = () => {
             dispatch(contactsSlice.actions.fetchSuccess(data))
         } catch (error) {
             dispatch(contactsSlice.actions.fetchReject(error))
-        }
-        // const data = await axios()
-        
-        return {type: "TEST", payload:100}
+        }        
+        // return {type: "TEST", payload:100}
     }
 }
 
@@ -43,3 +42,4 @@ const contactsSlice = createSlice({
 });
 
 export const contactsReduser = contactsSlice.reducer
+export const getContactsAction = contactsSlice.actions

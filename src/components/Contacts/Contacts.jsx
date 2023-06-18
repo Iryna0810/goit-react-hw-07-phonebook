@@ -24,7 +24,7 @@ export const Contacts = () => {
     {
         return <>
             <Button onClick={() => {
-                dispatch(()=> (getContactsAction))
+                dispatch(()=>(getContactsAction))
             }}>Test</Button>
         <List> {visibleContacts.map(({ name, id, number }) => <li key={id}>
             <p>{name}</p>
