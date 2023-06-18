@@ -4,6 +4,7 @@ import { List, Button } from '../styled';
 import { useSelector, useDispatch } from "react-redux";
 import { deleteContact } from '../redux/contactsSlice';
 import {contactsSelector, filterSelector} from '../redux/selectors'
+import { getContactsAction } from 'components/Products/productSlice';
 
 export const Contacts = () => {
     
@@ -20,14 +21,20 @@ export const Contacts = () => {
     const handleDelete = () => dispatch(deleteContact(contacts.id));
 
     // eslint-disable-next-line no-lone-blocks
-    {return <List> {visibleContacts.map(({ name, id, number }) => <li key={id}>
+    {
+        return <>
+            <Button onClick={() => {
+                dispatch(()=> (getContactsAction))
+            }}>Test</Button>
+        <List> {visibleContacts.map(({ name, id, number }) => <li key={id}>
             <p>{name}</p>
             <p>{number}</p>
             <Button type="submit"
                 onClick={() => handleDelete(id)}
             >Delete</Button>
         </li>)}
-        </List>
+            </List>
+            </>
     }
 }
 
