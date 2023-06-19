@@ -2,12 +2,12 @@ import {useState} from 'react';
 import { FormWrapper, Button, Input } from '../styled';
 import { useDispatch, useSelector } from "react-redux";
 import { addContact } from '../redux/contactsSlice';
-import { contactsSelector } from '../redux/selectors';
-
+import { loadContactSelector } from '../redux/selectors';
+import {newContactsReduser} from '../Products/productSlice'
 
 export const Form = () => {
 
-  const contacts = useSelector(contactsSelector);
+  const contacts = useSelector(loadContactSelector);
   
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
@@ -65,3 +65,5 @@ export const Form = () => {
     <Button type="submit">Add contacts</Button>
   </FormWrapper>
 };
+
+// export default Form

@@ -2,6 +2,7 @@ import { Form } from "./Form/Form";
 import { Title } from './Title/Title';
 import { Contacts } from "./Contacts/Contacts";
 import { Filter } from "./Filtter/Filter";
+// import {newContactsReduser} from '../Products/productSlice'
 
 export const App = () => {
   return (
