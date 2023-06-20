@@ -4,7 +4,7 @@ import { List, Button } from '../styled';
 import { useSelector, useDispatch } from "react-redux";
 // import { deleteContact } from '../redux/contactsSlice';
 import { filterSelector, loadContactSelector} from '../redux/selectors'
-import { getContactsThunk, addContactsThunk, deleteContactsThunk } from 'components/redux/thunk';
+import { getContactsThunk, deleteContactsThunk } from 'components/redux/thunk';
 
 export const Contacts = () => {
     

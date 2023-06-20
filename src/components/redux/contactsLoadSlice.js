@@ -26,7 +26,7 @@ const handleAddFulfilled = (state, {payload}) => {
 
 const handleDeleteFulfilled = (state, {payload}) => {
     state.isLoading = false
-   const index = state.findIndex(task => task.id === payload);
+   const index = state.contacts.findIndex(task => task.id === payload);
     state.splice(index, 1);
     state.error = null            
 }
