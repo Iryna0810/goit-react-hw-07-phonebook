@@ -28,4 +28,5 @@ export const addContactsThunk = createAsyncThunk('contacts/getAddContact',
         return rejectWithValue(error.message);
     }  
 }
-    )   
+)
+    

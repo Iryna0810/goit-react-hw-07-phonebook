@@ -41,13 +41,13 @@ const contactsSlice = createSlice({
         builder
         .addCase(getContactsThunk.fulfilled, handleGetFulfilled)
         .addCase(addContactsThunk.fulfilled, handleAddFulfilled)
-            .addCase(deleteContactsThunk.fulfilled, handleDeleteFulfilled)
-            .addCase(getContactsThunk.pending, handlePanding)
-            .addCase(addContactsThunk.pending, handlePanding)
-            .addCase(deleteContactsThunk.pending, handlePanding)
-            .addCase(getContactsThunk.rejected, handleRejected)
-            .addCase(addContactsThunk.rejected, handleRejected)
-            .addCase(deleteContactsThunk.rejected, handleRejected)
+        .addCase(deleteContactsThunk.fulfilled, handleDeleteFulfilled)
+        .addCase(getContactsThunk.pending, handlePanding)
+        .addCase(addContactsThunk.pending, handlePanding)
+        .addCase(deleteContactsThunk.pending, handlePanding)
+        .addCase(getContactsThunk.rejected, handleRejected)
+        .addCase(addContactsThunk.rejected, handleRejected)
+        .addCase(deleteContactsThunk.rejected, handleRejected)
     }
 });
 
