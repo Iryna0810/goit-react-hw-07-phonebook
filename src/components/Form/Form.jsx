@@ -2,20 +2,20 @@ import {useState} from 'react';
 import { FormWrapper, Button, Input } from '../styled';
 import { useDispatch, useSelector } from "react-redux";
 import {addContactsThunk} from 'components/redux/thunk'
-import { loadContactSelector } from '../redux/selectors';
+import { selectContacts } from '../redux/selectors';
 
 
 export const Form = () => {
 
-  const contacts = useSelector(loadContactSelector);
+  const contacts = useSelector(selectContacts);
   
   const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+  const [phone, setPhone] = useState('');
 
-  // const contact = {
-  //   name: name,
-  //   phone: number,
-  // };
+  const contact = {
+    name: name,
+    phone: phone,
+  };
 
   const dispatch = useDispatch();
     
@@ -27,19 +27,20 @@ export const Form = () => {
     if (nameCheck.length >= 1) {
       return alert(`${name} is already in contacts`)
     }
-    dispatch(addContactsThunk(name, number))
+
+    dispatch(addContactsThunk(contact))
     reset();
   }
 
   const handleInputChange = ({ target: { value, name } }) => {
     if (name === 'name') setName(value)
-    if (name === 'number') setNumber(value)
+    if (name === 'phone') setPhone(value)
   }
 
 
   const reset = () => {
     setName('');
-    setNumber('');
+    setPhone('');
   }
 
   return <FormWrapper action="" onSubmit={handleSubmit}>
@@ -58,8 +59,8 @@ export const Form = () => {
     <label>Number
       <Input
         type="tel"
-        name="number"
-        value={number}
+        name="phone"
+        value={phone}
         autoComplete="off"
         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
@@ -70,5 +71,3 @@ export const Form = () => {
     <Button type="submit">Add contacts</Button>
   </FormWrapper>
 };
-
-// export default Form
