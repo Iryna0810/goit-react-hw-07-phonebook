@@ -6,5 +6,14 @@ export async function getContacts () {
     const {data} = await axios.get(`/users`)
     console.log(data)
     return data
+}
 
+export async function addContact({name, phone}) {
+    const { data } = await axios.post(`/users`, { name, phone })
+    return data;
+}
+
+export async function deleteContact (id) {
+    const { data } = await axios.post(`/users, ${ id }`)
+    return data;
 }
