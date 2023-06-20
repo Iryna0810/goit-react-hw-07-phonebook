@@ -28,7 +28,7 @@ export const Contacts = () => {
     }, [contacts, filter])
 
  
-    const handleDelete = () => dispatch(getContactsThunk(contacts.id));
+    const handleDelete = () => dispatch(deleteContactsThunk(contacts.id));
    
 
     // eslint-disable-next-line no-lone-blocks
